@@ -15,28 +15,37 @@
 
   <!-- JS -->
   <script type="text/javascript" src="js/inventoryevent.js"></script>
+  <script type="text/javascript" src="js/imitate_promise.js"></script>
+
 
   <!-- Jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 
 </head>
 
 <body>
-  <!-- Loading gif -->
-  <div id="loading" src="img/treasurebox.png" alt="loading..."></div>
+  <!-- Loading process -->
+  <div id="loading" src="img/closed_treasurebox.png" alt="loading..."></div>
   <!-- Loading js(jquery) -->
   <script type="text/javascript">
     function hideLoader() {
       // check if window is ready to show
-      $(window).ready(
-        // performance about fading out of loading image
-        $('#loading').fadeOut()
-      )
+      console.log('hideloader function called');
+      $(window).ready(changeimgNfadeout());
     }
 
-    // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
-    setTimeout(hideLoader, 3 * 1000);
+    // performance change closed to opend image and about fading loading image out
+    function changeimgNfadeout()  {
+      console.log('change img N fadeout function called')
+      document.getElementById('loading').src = "img/opened_tresurebox.png";
+      document.getElementById('loading').id = 'beforeshowing';
+      console.log('settimeout - beforeshowing fadeout');
+      setTimeout($('#beforeshowing').fadeOut(), 4.5 * 1000);
+      console.log('settimeout - beforeshowing fadeout over');
+    }
+
+    // *tips -> Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
+    setTimeout(hideLoader, 1.5 * 1000);
   </script>
 
 
@@ -46,7 +55,7 @@
     <!--Exit button-->
     <button type="button" name="button" class="exit"
             onclick="mouse_click()">
-    <img src="">-</button>
+    <img src="">!</button>
 
     <div id="inventory_tab">
 
