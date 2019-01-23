@@ -2,17 +2,70 @@
 <meta charchest="utf-8">
 <html>
 <head>
-  <title>유동헌 포트폴리오(게임 아닙니다!)</title>
+  <title>유동헌 포트폴리오</title>
+
+  <!-- Description -->
+  <meta charset="utf-8">
   <meta name="description=" content="프론트엔드, 자기소개, 포트폴리오, 홈페이지, 모바일, 웹게임, 게임">
   <meta name="keyword" content="프론트엔드, 자기소개, 포트폴리오, 홈페이지, 모바일, 웹게임, 게임">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/inventorywindow.css">
+  <link rel="stylesheet" href="css/loading.css">
 
+  <!-- JS -->
+  <script type="text/javascript" src="js/inventoryevent.js"></script>
 
+  <!-- Jquery -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 
 </head>
 
 <body>
+  <!-- Loading gif -->
+  <div id="loading" src="img/treasurebox.png" alt="loading..."></div>
+  <!-- Loading js(jquery) -->
+  <script type="text/javascript">
+    function hideLoader() {
+      // check if window is ready to show
+      $(window).ready(
+        // performance about fading out of loading image
+        $('#loading').fadeOut()
+      )
+    }
 
+    // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
+    setTimeout(hideLoader, 3 * 1000);
+  </script>
+
+
+  <!-- Inventory window-->
+  <div id="inventory">
+    <!--Tab-->
+    <!--Exit button-->
+    <button type="button" name="button" class="exit"
+            onclick="mouse_click()">
+    <img src="">-</button>
+
+    <div id="inventory_tab">
+
+      <div id="inventory_tab home_content">
+
+      </div>
+      <div id="inventory_tab portfolio_content">
+
+      </div>
+      <div id="inventory_tab skills_content">
+
+      </div>
+      <div id="inventory_tab keyword_content">
+
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 </html>

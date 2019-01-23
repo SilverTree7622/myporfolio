@@ -1,0 +1,43 @@
+
+#inventory {
+  visibility: visible;
+  float: right;
+}
+
+#inventory_tab {
+
+}
+#inventory_tab:hover {
+
+  background-color: red;
+}
+#inventory_tab:not(hover) {
+  background-color: none;
+}
+
+/*Inventory Close button*/
+
+.exit:hover {
+  background-color: red;
+  cursor: pointer;
+}
+.exit:not(hover) {
+  background-color: none;
+}
+
+/*Inventory Content CSS*/
+#home_content {
+  width: 32%;
+}
+
+#portfolio_content {
+
+}
+
+#skills_content {
+
+}
+
+#keyword_content {
+
+}
