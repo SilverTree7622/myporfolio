@@ -6,17 +6,20 @@
 
   <!-- Description -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description=" content="프론트엔드, 자기소개, 포트폴리오, 홈페이지, 모바일, 웹게임, 게임">
   <meta name="keyword" content="프론트엔드, 자기소개, 포트폴리오, 홈페이지, 모바일, 웹게임, 게임">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/inventorywindow.css">
   <link rel="stylesheet" href="css/loading.css">
+  <link rel="stylesheet" href="css/basictag+related.css">
 
   <!-- JS -->
   <script type="text/javascript" src="js/inventoryevent.js"></script>
   <script type="text/javascript" src="js/trycatch_handler.js"></script>
-
+  <script type="text/javascript" src="js/ispcornot.js"></script>
+  <script type="text/javascript" src="js/tab.js"></script>
 
   <!-- Jquery -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -24,9 +27,19 @@
 </head>
 
 <body>
-  <!-- Loading process -->
+
+  <!-- window width keep detector -->
+  <script type="text/javascript">
+  // (Jquery)사이즈 변화 감지
+  $( window ).resize(function() {
+    widthdetect();
+  });
+</script>
+
+
+  <!-- First Loading process -->
   <div id="loading" src="img/closed_treasurebox.png" alt="loading..."></div>
-  <!-- Loading js(jquery) initial loading web image performance(shaking treasurebox and opened performance) -->
+  <!-- initial Loading js(jquery) web image performance(shaking treasurebox and opened performance) -->
   <script type="text/javascript">
     function hideLoader() {
       // check if window is ready to show
@@ -53,32 +66,47 @@
   </script>
 
 
+
   <!-- Inventory window-->
-  <div id="inventory">
+  <section id="inventory">
     <!--Tab-->
     <!--Exit button-->
     <button type="button" name="button" class="exit"
             onclick="mouse_click()">
     <img src="">!</button>
 
-    <div id="inventory_tab">
+    <div id="inventory_tab_wrapper">
+      <button class="tablinks" onclick="showtab(event, 'Home')">Home</button>
+      <button class="tablinks" onclick="showtab(event, 'Portfolio')">Portfolio</button>
+      <button class="tablinks" onclick="showtab(event, 'Skills')">Skills</button>
+      <button class="tablinks" onclick="showtab(event, 'Keyword')">Keyword</button>
+    </div>
 
-      <div id="inventory_tab home_content">
+        <!--Home Tab-->
+    <div id="Home" class="tabcontent">
+      <iframe class='iframe100' frameborder='0'>Home</iframe>
+    </div>
 
-      </div>
-      <div id="inventory_tab portfolio_content">
-
-      </div>
-      <div id="inventory_tab skills_content">
-
-      </div>
-      <div id="inventory_tab keyword_content">
-
-      </div>
+    <!--Portfolio Tab-->
+    <div id="Portfolio" class="tabcontent">
+      <iframe class='iframe100' frameborder='0'>Portfolio</iframe>
 
     </div>
 
-  </div>
+    <!--skills Tab-->
+    <div id="Skills" class="tabcontent">
+      <iframe class='iframe100' frameborder='0'>Skills</iframe>
+
+    </div>
+
+    <!--keyword Tab-->
+    <div id="Keyword" class="tabcontent">
+      <iframe class='iframe100' frameborder='0'>Keyword</iframe>
+
+    </div>
+
+
+  </section>
 
 </body>
 </html>
