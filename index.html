@@ -15,7 +15,7 @@
 
   <!-- JS -->
   <script type="text/javascript" src="js/inventoryevent.js"></script>
-  <script type="text/javascript" src="js/imitate_promise.js"></script>
+  <script type="text/javascript" src="js/trycatch_handler.js"></script>
 
 
   <!-- Jquery -->
@@ -26,7 +26,7 @@
 <body>
   <!-- Loading process -->
   <div id="loading" src="img/closed_treasurebox.png" alt="loading..."></div>
-  <!-- Loading js(jquery) -->
+  <!-- Loading js(jquery) initial loading web image performance(shaking treasurebox and opened performance) -->
   <script type="text/javascript">
     function hideLoader() {
       // check if window is ready to show
@@ -40,12 +40,16 @@
       document.getElementById('loading').src = "img/opened_tresurebox.png";
       document.getElementById('loading').id = 'beforeshowing';
       console.log('settimeout - beforeshowing fadeout');
-      setTimeout($('#beforeshowing').fadeOut(), 4.5 * 1000);
-      console.log('settimeout - beforeshowing fadeout over');
+      // async process 비동기처리 방식. js/trycatch_handler.js ref
+      setTimeout(trycatch_handler(
+        function() {
+          $('#beforeshowing').fadeOut()
+        }
+      ), 1.0 * 1000);
     }
 
     // *tips -> Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
-    setTimeout(hideLoader, 1.5 * 1000);
+    setTimeout(hideLoader, 1.1 * 1000);
   </script>
 
 
